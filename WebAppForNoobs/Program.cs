@@ -12,7 +12,7 @@ namespace WebAppForNoobs
             // Add services to the container.
 
             //Add EntityFramework
-            var connectionString = "";
+            var connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=TestDatabse;Integrated Security=True";
 
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
             //EndAddEntityFramework
