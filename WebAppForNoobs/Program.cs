@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using WebAppForNoobs.Database;
 
 namespace WebAppForNoobs
 {
@@ -8,6 +10,12 @@ namespace WebAppForNoobs
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            //Add EntityFramework
+            var connectionString = "";
+
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+            //EndAddEntityFramework
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,7 +32,6 @@ namespace WebAppForNoobs
             }
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 
